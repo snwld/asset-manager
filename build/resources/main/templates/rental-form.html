@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>대여 신청</title>
+</head>
+<body>
+<h1>[[${asset.name}]] 대여 신청</h1>
+<form th:action="@{/ui/rentals}" method="post" th:object="${rental}">
+    <input type="hidden" th:field="*{asset.id}" />
+
+    <label>사용자명: <input type="text" th:field="*{user}" /></label><br/>
+    <label>반납 예정일: <input type="datetime-local" th:field="*{dueDate}" /></label><br/>
+
+    <button type="submit">대여 신청</button>
+</form>
+</body>
+</html>

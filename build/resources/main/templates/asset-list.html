@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>자산 목록</title>
+</head>
+<body>
+<h1>자산 목록</h1>
+<a href="/ui/assets/new">+ 새 자산 등록</a>
+<table border="1">
+    <tr>
+        <th>이름</th><th>시리얼</th><th>cpu</th><th>memory</th><th>disk</th><th>상태</th><th>메모</th>
+    </tr>
+    <tr th:each="asset : ${assets}">
+        <td th:text="${asset.name}"></td>
+        <td th:text="${asset.serialNumber}"></td>
+        <td th:text="${asset.cpu}"></td>
+        <td th:text="${asset.memory}"></td>
+        <td th:text="${asset.hdd}"></td>
+        <td th:text="${asset.status}"></td>
+        <td th:text="${asset.memo}"></td>
+        <td> <a th:href="@{/ui/rentals/new/{id}(id=${asset.id})}">대여하기</a> </td>
+    </tr>
+</table>
+</body>
+</html>

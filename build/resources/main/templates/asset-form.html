@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>자산 등록</title>
+</head>
+<body>
+<h1>자산 등록</h1>
+<form th:action="@{/ui/assets}" th:object="${asset}" method="post">
+    <label>이름: <input type="text" th:field="*{name}" /></label><br/>
+    <label>시리얼: <input type="text" th:field="*{serialNumber}" /></label><br/>
+    <label>상태:
+        <select th:field="*{status}">
+            <option value="AVAILABLE">AVAILABLE</option>
+            <option value="IN_USE">IN_USE</option>
+        </select>
+    </label><br/>
+    <label>CPU: <input type="text" th:field="*{cpu}" /></label><br/>
+    <label>메모리: <input type="text" th:field="*{memory}" /></label><br/>
+    <label>HDD: <input type="text" th:field="*{hdd}" /></label><br/>
+    <label>메모: <input type="text" th:field="*{memo}" /></label><br/>
+    <button type="submit">등록</button>
+</form>
+</body>
+</html>
